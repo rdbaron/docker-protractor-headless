@@ -4,7 +4,7 @@ Protractor end to end testing for AngularJS - dockerised with headless real Chro
 
 ## Why headless Chrome?
 
-PhantomJS is [discouraged by Protractor creators](https://angular.github.io/protractor/#/browser-setup#setting-up-phantomjs) and for a good reason. It's basically a bag of problems. 
+PhantomJS is [discouraged by Protractor creators](https://angular.github.io/protractor/#/browser-setup#setting-up-phantomjs) and for a good reason. It's basically a bag of problems.
 
 ## What is headless Chrome anyway?
 
@@ -48,4 +48,6 @@ The [`--privileged`](https://docs.docker.com/engine/reference/run/#runtime-privi
 
 This options is required **only** if the dockerised Protractor is run against localhost on the host. Imagine this sscenario: you run an http test server on your local machine, let's say on port 8000. You type in your browser `http://localhost:8000` and everything goes smoothly. Then you want to run the dockerised Protractor against the same localhost:8000. If you don't use `--net=host` the container will receive the bridged interface and its own loopback and so the `localhost` within the container will refer to the container itself. Using `--net=host` you allow the container to share host's network stack and properly refer to the host when Protractor is run against `localhost`.
 
+## Why fork the original?
 
+The original image is based off of node-slim, but I have some project dependencies that were broken by node's latest move up to 6.3.
