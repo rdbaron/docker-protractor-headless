@@ -1,6 +1,6 @@
 FROM node:6.2-slim
 WORKDIR /tmp
-RUN npm install -g protractor@3.3.0 mocha jasmine && \
+RUN npm install -g protractor@3.3 mocha jasmine && \
     webdriver-manager update && \
     apt-get update && \
     apt-get install -y xvfb wget openjdk-7-jre && \
